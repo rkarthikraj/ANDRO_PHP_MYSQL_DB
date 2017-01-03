@@ -62,6 +62,51 @@
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignStart="@+id/name" />
 
+    <Button
+        android:text="INS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/insertBT"
+        android:onClick="onClickInsert"
+        android:textSize="12sp"
+        android:layout_below="@+id/place"
+        android:layout_toStartOf="@+id/place"
+        android:layout_alignEnd="@+id/textView4" />
+
+    <Button
+        android:text="UPD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateBT"
+        android:onClick="onClickUpdate"
+        android:textSize="12sp"
+        android:layout_below="@+id/insertBT"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/insertBT" />
+
+    <Button
+        android:text="Del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteBT"
+        android:onClick="onClickDelete"
+        android:textSize="12sp"
+        android:layout_below="@+id/updateBT"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/updateBT" />
+
+    <Button
+        android:text="Res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear"
+        android:onClick="onClickReset"
+        android:textSize="10sp"
+        android:layout_below="@+id/deleteBT"
+        android:layout_toStartOf="@+id/place"
+        android:layout_alignEnd="@+id/deleteBT" />
+
     <TextView
         android:text="ID"
         android:layout_width="wrap_content"
@@ -69,80 +114,50 @@
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="normal|bold"
-        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/id1"
+        android:layout_alignBottom="@+id/id1"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
-
-    <Button
-        android:text="INSERT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:id="@+id/insertBT"
-        android:onClick="onClickInsert"
-        android:layout_below="@+id/place"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="UPDATE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/updateBT"
-        android:onClick="onClickUpdate"
-        android:layout_alignBaseline="@+id/insertBT"
-        android:layout_alignBottom="@+id/insertBT"
-        android:layout_alignStart="@+id/clear" />
-
-    <Button
-        android:text="Reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clear"
-        android:onClick="onClickReset"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/updateBT"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="DELETE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/deleteBT"
-        android:onClick="onClickDelete"
-        android:layout_alignBaseline="@+id/updateBT"
-        android:layout_alignBottom="@+id/updateBT"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="For Insert dont use ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/clear"
-        android:layout_alignParentStart="true"
-        android:textStyle="normal|bold"
-        android:textSize="18sp" />
-
-    <TextView
-        android:text="For Update use ID, Name, Place"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="17dp"
-        android:id="@+id/textView9"
-        android:textSize="18sp"
-        android:textStyle="normal|bold" />
+        android:layout_marginStart="11dp" />
 
     <TextView
         android:text="For Delete use ID alone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
         android:id="@+id/textView10"
         android:textStyle="normal|bold"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:text="For Update use ID, Name, Place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:layout_above="@+id/textView10"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:text="For Insert dont use ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:layout_above="@+id/textView9"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deleteBT"
+        android:layout_alignStart="@+id/nametv"
+        android:id="@+id/placetv" />
+
 </RelativeLayout>
