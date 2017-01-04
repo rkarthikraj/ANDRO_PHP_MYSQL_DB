@@ -109,7 +109,7 @@
         android:layout_marginStart="11dp" />
 
     <TextView
-        android:text="For Delete use ID alone"
+        android:text="For Select and Delete use ID alone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView10"
@@ -141,14 +141,6 @@
         android:layout_alignParentEnd="true"
         android:textAlignment="textEnd" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/deleteBT"
-        android:layout_alignStart="@+id/nametv"
-        android:id="@+id/placetv" />
-
     <Button
         android:text="SEL"
         android:layout_width="wrap_content"
@@ -160,15 +152,6 @@
         android:layout_alignEnd="@+id/deleteBT"
         android:onClick="onClickSelect" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:id="@+id/nametv"
-        android:layout_below="@+id/insertBT"
-        android:layout_alignEnd="@+id/place" />
-
     <Button
         android:text="Res"
         android:layout_width="wrap_content"
@@ -179,5 +162,35 @@
         android:layout_above="@+id/textView9"
         android:layout_toStartOf="@+id/place"
         android:layout_alignEnd="@+id/selectBT" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/placetv"
+        android:layout_alignBaseline="@+id/deleteBT"
+        android:layout_alignBottom="@+id/deleteBT"
+        android:layout_alignStart="@+id/nametv" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nametv"
+        android:layout_marginStart="13dp"
+        android:layout_above="@+id/deleteBT"
+        android:layout_alignStart="@+id/textView8" />
+
+    <TextView
+        android:text="OUTPUT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="14sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="center"
+        android:layout_above="@+id/updateBT"
+        android:layout_alignStart="@+id/nametv"
+        android:layout_marginStart="20dp" />
 
 </RelativeLayout>

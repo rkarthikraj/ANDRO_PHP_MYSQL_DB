@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,6 +21,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static android.R.attr.data;
 
 public class MainActivity extends AppCompatActivity {
     EditText getID, getName, getPlace;
@@ -209,15 +212,9 @@ public class MainActivity extends AppCompatActivity {
             String data = "";
 
             try {
-                URL url = new URL("http://7fc90870.ngrok.io/androphpselect.php/?id=" + params[0]);
+                URL url = new URL("http://192.168.1.213/androphpselect.php/?id=" + params[0]);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoOutput(true);//connection.setRequestMethod("POST");c
-                //connection.setRequestProperty("Content-Type", "application/json");
-               /* OutputStreamWriter osw = new OutputStreamWriter(connection.getOutputStream());
-                //osw.write(String.format( String.valueOf(json)));
-                osw.flush();
-                osw.close();*/
-
+                connection.setDoOutput(true);
                 InputStream stream = connection.getInputStream();
                 InputStreamReader isReader = new InputStreamReader(stream);
                 BufferedReader br = new BufferedReader(isReader);
@@ -233,18 +230,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            JSONObject json = null;
-            String name = "";
-            String place = "";
+        protected void onPostExecute(String result) {
 
             try {
-                json = new JSONObject(s);
-                nameTV.setText("Name" + json.getString("name"));
-                placeTV.setText("Place" + json.getString("place"));
+                JSONArray jsonarray = new JSONArray(result);
+                for (int i = 0; i < jsonarray.length(); i++) {
+                    JSONObject jsonobject = jsonarray.getJSONObject(i);
+                    nameTV.setText("Name  :" + jsonobject.getString("name"));
+                    placeTV.setText("Place :" + jsonobject.getString("place"));
+                }
 
-            } catch (JSONException j) {
-
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
