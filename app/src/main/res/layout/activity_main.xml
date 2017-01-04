@@ -96,17 +96,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/updateBT" />
 
-    <Button
-        android:text="Res"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clear"
-        android:onClick="onClickReset"
-        android:textSize="10sp"
-        android:layout_below="@+id/deleteBT"
-        android:layout_toStartOf="@+id/place"
-        android:layout_alignEnd="@+id/deleteBT" />
-
     <TextView
         android:text="ID"
         android:layout_width="wrap_content"
@@ -159,5 +148,36 @@
         android:layout_above="@+id/deleteBT"
         android:layout_alignStart="@+id/nametv"
         android:id="@+id/placetv" />
+
+    <Button
+        android:text="SEL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/selectBT"
+        android:textSize="10sp"
+        android:layout_below="@+id/deleteBT"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignEnd="@+id/deleteBT"
+        android:onClick="onClickSelect" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:id="@+id/nametv"
+        android:layout_below="@+id/insertBT"
+        android:layout_alignEnd="@+id/place" />
+
+    <Button
+        android:text="Res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear"
+        android:onClick="onClickReset"
+        android:textSize="10sp"
+        android:layout_above="@+id/textView9"
+        android:layout_toStartOf="@+id/place"
+        android:layout_alignEnd="@+id/selectBT" />
 
 </RelativeLayout>

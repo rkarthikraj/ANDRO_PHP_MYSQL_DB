@@ -59,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
         runnerDEL.execute(ID);
     }
 
+    public void onClickSelect(View v) {
+        ID = getID.getText().toString();
+        AsyncTaskDBSEL runnerSEL = new AsyncTaskDBSEL();
+        runnerSEL.execute(ID);
+    }
+
         public void onClickReset(View v) {
         getID.setText("");
         getName.setText("");
@@ -191,6 +197,55 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             Toast.makeText(MainActivity.this, "Data DELETED successfully.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+//SELECT
+
+    class AsyncTaskDBSEL extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            String data = "";
+
+            try {
+                URL url = new URL("http://192.168.1.213/androphpselect.php/?id=" + params[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoOutput(true);//connection.setRequestMethod("POST");c
+                //connection.setRequestProperty("Content-Type", "application/json");
+               /* OutputStreamWriter osw = new OutputStreamWriter(connection.getOutputStream());
+                //osw.write(String.format( String.valueOf(json)));
+                osw.flush();
+                osw.close();*/
+
+                InputStream stream = connection.getInputStream();
+                InputStreamReader isReader = new InputStreamReader(stream);
+                BufferedReader br = new BufferedReader(isReader);
+                data = br.readLine();
+                return data;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+                return "Exception: " + e.getMessage();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Exception: " + e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            JSONObject json = null;
+            String name = "";
+            String place = "";
+
+            try {
+                json = new JSONObject(s);
+                nameTV.setText("Name" + json.getString("name"));
+                placeTV.setText("Place" + json.getString("place"));
+
+            } catch (JSONException j) {
+
+            }
         }
     }
 }
