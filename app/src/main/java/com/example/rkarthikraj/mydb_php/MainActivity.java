@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
             String data = "";
 
             try {
-                URL url = new URL("http://192.168.1.213/androphpselect.php/?id=" + params[0]);
+                URL url = new URL("http://7fc90870.ngrok.io/androphpselect.php/?id=" + params[0]);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setDoOutput(true);//connection.setRequestMethod("POST");c
                 //connection.setRequestProperty("Content-Type", "application/json");
